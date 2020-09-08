@@ -70,4 +70,8 @@ Ensure that the win/lose screens are distinct.
 Ensure gaining/losing money audio feedback are appealing.
 =======
 
+## Domain Model:
+
+![Image](images/domainModel.png)
+
 
