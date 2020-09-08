@@ -39,7 +39,7 @@ Someone having a bored day, this would apeal to them.
 
 - What are your stretch goals?
  - Have a wheel to spin which gives the user a chance of winning or losing money.
- 
+
 ### Data Flow
 - Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
   - The user will enter the site and the first page will b
