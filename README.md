@@ -1,5 +1,21 @@
 
-# Wheel_Of_Wealth
+# Wheel Of Wealth
+
+Team Members: 
+
+Doug Pfeffer
+Michael Greene 
+Louis Caruso
+Nebiyu Kifle
+
+Project Management Tools: 
+
+cacoo
+trello
+
+Description of Project: 
+
+Wheel of Wealth is very similar to the timeless game show - WHEEL OF FORTUNE. A single player will land on the main page, where they will be greeted by "Pat" welcoming them to the game. The player will be prompted to enter their name, and the rules will be outlined. Upon entering the game, the player will be  given a puzzle to solve. They will spin a wheel which will give them a dolar amount to wager on a guess. If they get a letter correct, they will earn that amount for every iteration of the letter guessed. If the guess does not correspond to a letter, they must spin again. After solving three puzzles (# rounds), the total winnings will slot the user on the leaderboard.
 
 
 ## User Stories
