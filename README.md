@@ -1,3 +1,4 @@
+
 # Wheel_Of_Wealth
 
 
@@ -67,3 +68,6 @@ Ensure that when users that click on the letter buttons have interesting transit
 Stretch Goal: Ensure that when users that click on the spin button the wheel is animated with spinning sounds and animations.
 Ensure that the win/lose screens are distinct.
 Ensure gaining/losing money audio feedback are appealing.
+=======
+
+
