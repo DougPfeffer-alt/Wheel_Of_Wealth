@@ -126,3 +126,7 @@ main > article > p {
   margin-top: 30px;
   background-color: rgba(53,160,137,.5);
 }
+
+main > article > p > a {
+  text-decoration: none;
+}
