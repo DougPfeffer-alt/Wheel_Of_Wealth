@@ -30,8 +30,7 @@ function userMakesHSList(name, score) {
     new HiScoree('Alice', 20);
     new HiScoree('Ted', 10);
   }
-
-  //sorts function from lowest score to highest score
+  
   hiScoreArray.sort(function (a, b) { return a.score - b.score;});
 
   //reverses order of array elements to make highest score the first element
@@ -53,3 +52,5 @@ var highScore = document.getElementById('highScoreTable');
 function renderHeader() {
   var 
 }
+
+
