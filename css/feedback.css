@@ -1,17 +1,13 @@
-#transitionAlert{
-  font-size: 48px;
-  color:white;
-  text-shadow: 3px 3px black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-}
+
 
 .youWin{
   
   background-color: white;
- -webkit-transform: scale(5);
+  margin: auto;
+  -webkit-transform: scale(5);
   -ms-transform: scale(5);
   transform: scale(5);
+  width: 20%;
   /*animation: 3s infinite alternate slidein;*/
 }
 
@@ -26,3 +22,15 @@
     width:100%;
   }
 }*/
+
+.continueButton{
+  margin-top: 12%;
+  margin-bottom: 5%;
+  -webkit-transform: scale(5);
+  -ms-transform: scale(5);
+  transform: scale(5);
+  color: rgb(217, 255, 0); 
+  text-shadow: .5px 1px black;
+  background-color: rgb(0, 141, 47);
+}
+
