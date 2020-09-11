@@ -2,46 +2,38 @@
 
 //global var here
 var newPlayer = document.getElementById('newPlayer');
+var tableBody = document.getElementById('highScoreTable');
 var placement = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 var allPlayers = [];
 var hiScoreArray = [];
 
 //Random Math
-// function getRandomIntInclusive(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 
-// }
-
-//constructor functions
-function Player(name) {
-  this.name = name;
-  this.totalScore = [];
-  allPlayers.push(this);
-}
-console.log(allPlayers);
-//how we push the high score highScore arry
-function HiScore(name, score) {
-  this.name = name;
-  this.score = score;
-  hiScoreArray.push(this);
 }
 
-Player.prototype.render = function() {
+
+
+Player.prototype.render = function () {
   var tableEl = document.getElementById('highScoreTable');
-  var highScoreTableEl = document.createElement('th');
-  highScoreTable.textContent = this.name;
-  var trEl = document.createElement('tr');
-  tableEl.appendChild(trEl);
-  var thEl = document.createElement('th');
-  thEl.textContent = this.name;
-  trEl.appendChild(thEl);
+  var playerRow = document.createElement('tr');
+  var highScoreName = document.createElement('th');
+  var highScore = document.createElement('th');
+  highScoreName.textContent = this.name;
+  // tableEl.appendChild(playerRow);
+  highScore.textContent = this.score;
+  highScoreName.appendChild(highScore);
+  playerRow.appendChild(highScoreName);
+  tableBody.appendChild(playerRow);
 };
 function userMakesHSList(name, score) {
   //adds new user score to array
-  new HiScore(name, score);
+  new Player(name, score);
+
 
   //if there is already a hi score array in local storage, use that one instead
-  if (localStorage.getItem('hiScoreArray')) {
+  if (localStorage.getItem('playerArray')) {
     //parses the stringified data back to an array type object
     hiScoreArray = JSON.parse(localStorage.getItem('hiScoreArray'));
   }
@@ -70,15 +62,12 @@ function userMakesHSList(name, score) {
 }
 
 //this function will be the last thing called after the game is over, creating the hi score list.
-userMakesHSList('MKG', 1000);
+// userMakesHSList('MKG', 1000);
 
 //console debug
 console.log(hiScoreArray);
 
 //table
-
-function handleSubmit(event) {
-  event.preventDefault();
 
   newPlayer = event.target.name.value;
   console.log(event.target.name.value);
@@ -86,41 +75,54 @@ function handleSubmit(event) {
   event.target.playerName.value = null;
   // renderTable();
 
-
-}
-
-var tableBody = document.getElementById('highScoreTable');
-
-function renderHeader() {
-  var headerRow = document.createElement('tr');
-  var headerPlayer = document.createElement('th');
-  var headerScore = document.createElement('th');
-  headerScore.textcontent = 'Score';
-  headerRow.appendChild(headerPlayer);
-  tableBody.appendChild(headerRow);
-
-  for (var i = 0; i < placement.length; i++) {
-    var headerPlacement = document.createElement('th');
-    headerPlacement.textContent = placement[i];
-    headerScore.appendChild(headerPlacement);
-    headerRow.appendChild(headerPlacement);
-  }
-}
-
-
-
 // asking user their name and logging it in local storage
 // maybe using a form we will ask the user- name and info
 
 //render the table with the high score
 function renderTable() {
-  // table.innerHTML = '';
+
   renderHeader();
-  for(var i = 0; i < allPlayers.length; i++) {
+  for (var i = 0; i < allPlayers.length; i++) {
     allPlayers[i].render();
   }
 }
 
-newPlayer.addEventListener('submit', handleSubmit);
+// newPlayer.addEventListener('submit', handleSubmit);
 
+// constructor functions
+function renderHeader() {
+  var headerRow = document.createElement('tr');
+  var headerPlayer = document.createElement('th');
+  var headerScore = document.createElement('th');
+  headerScore.textContent = 'highScoreTable';
+  console.log(headerScore);
+
+  for (var i = 0; i < placement.length; i++) {
+    var headerPlacement = document.createElement('th');
+    headerPlacement.textContent = placement[i];
+    headerPlayer.appendChild(headerPlacement);
+  }
+  headerRow.appendChild(headerScore);
+  headerRow.appendChild(headerPlayer);
+  tableBody.appendChild(headerRow);
+}
+
+
+userMakesHSList();
 renderTable();
+
+
+// function Player(name) {
+//   this.name = name;
+//   this.totalScore = [];
+//   allPlayers.push(this);
+// }
+// console.log(allPlayers);
+//how we push the high score highScore arry
+function Player(name, score) {
+  this.name = name;
+  this.score = score;
+  // hiScoreArray.push(this.score);
+  allPlayers.push(this);
+}
+console.log(allPlayers);
