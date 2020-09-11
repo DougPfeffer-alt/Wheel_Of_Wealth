@@ -1,10 +1,10 @@
 'use strict';
 
 var categoryArray = ['Sports', 'JavaScript', 'CSS'];
-var sportsArray = ['baseball', 'football', 'hockey'];
-var javaScriptArray = ['function', 'variable', 'concatenation'];
-var cssArray = ['border', 'color', 'absolute'];
-var gameboardDisplayArray;
+var sportsArray = ['BASEBALL', 'FOOTBALL', 'HOCKEY'];
+var javaScriptArray = ['FUNCTION', 'VARIABLE', 'CONCATENATION']
+var cssArray = ['BORDER', 'COLOR', 'ABSOLUTE'];
+var gameboardDisplayArray = [];
 var currentRoundArray;
 var currentCategory;
 var currentWord;
@@ -50,6 +50,7 @@ function splitString(currWord) {
   var str = currWord;
   currWord = str.split('');
   currentRoundArray = currWord;
+  console.log(currentRoundArray);
   return populateGameboard(currentRoundArray);
 }
 
@@ -66,12 +67,14 @@ function populateGameboard(currRoundArray) {
 
   for (var i = 0; i < currentRoundArray.length; i++) {
     var letterCell = document.createElement('td');
-    letterCell.textContent = ' ';
+    letterCell.innerHTML = ' ';
     letterCell.setAttribute('id', 'letters');
     tableRow1.appendChild(letterCell);
-    gameboardDisplayArray.push(letterCell);
+    gameboardDisplayArray.push(letterCell);    
   }
 }
+
+
 
 var letterGuess = document.getElementById('guessField');
 
@@ -81,18 +84,20 @@ function handleSubmit(event) {
   var gotItRight = false;
   var multiplier = 0;
   var guess = event.target.name.value;
-
+  guess = guess.toUpperCase();
+  console.log(guess);
   for (var i = 0; i < currentRoundArray.length; i++) {
     if (guess === currentRoundArray[i]) {
-      multiplier++;
+      multiplier++;      
       gotItRight = true;
+      gameboardDisplayArray[i].innerHTML = currentRoundArray[i];
     } else if (guess !== currentRoundArray[i]) {//ignore wrong guesses}
     }
 
-    if (gotItRight === true) {
-      console.log(multiplier + 'x the monies!');
+    if (gotItRight === true) {      
     }
   }
+  event.target.name.value = null;
 }
 
 letterGuess.addEventListener('submit', handleSubmit);
