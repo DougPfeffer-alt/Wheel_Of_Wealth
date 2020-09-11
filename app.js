@@ -89,23 +89,55 @@ function renderTable() {
 
 // newPlayer.addEventListener('submit', handleSubmit);
 
+//render the table with the high score
+function renderTable() {
+
+  renderHeader();
+  for (var i = 0; i < allPlayers.length; i++) {
+    allPlayers[i].render();
+  }
+}
+
+var tableBody = document.getElementById('highScoreTable');
+// newPlayer.addEventListener('submit', handleSubmit);
+
 // constructor functions
 function renderHeader() {
   var headerRow = document.createElement('tr');
   var headerPlayer = document.createElement('th');
   var headerScore = document.createElement('th');
+  headerScore.textcontent = 'Score';
+  headerRow.appendChild(headerPlayer);
+  tableBody.appendChild(headerRow);
   headerScore.textContent = 'highScoreTable';
   console.log(headerScore);
 
   for (var i = 0; i < placement.length; i++) {
     var headerPlacement = document.createElement('th');
     headerPlacement.textContent = placement[i];
+    headerScore.appendChild(headerPlacement);
+    headerRow.appendChild(headerPlacement);
     headerPlayer.appendChild(headerPlacement);
   }
   headerRow.appendChild(headerScore);
   headerRow.appendChild(headerPlayer);
   tableBody.appendChild(headerRow);
 }
+
+
+userMakesHSList();
+renderTable();
+
+// asking user their name and logging it in local storage
+// maybe using a form we will ask the user- name and info
+
+//render the table with the high score
+function renderTable() {
+  // table.innerHTML = '';
+  renderHeader();
+  for(var i = 0; i < allPlayers.length; i++) {
+    allPlayers[i].render();
+  }
 
 
 userMakesHSList();
