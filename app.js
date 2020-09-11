@@ -81,7 +81,7 @@ function handleSubmit() {
   event.preventDefault();
 
   newPlayer = event.target.playerName.value;
-  newPlayer = new Player(playerName);
+  newPlayer = new Player(newPlayer);
   event.target.playerName.value = null;
   // renderTable();
 
