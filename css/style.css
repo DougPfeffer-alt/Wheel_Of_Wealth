@@ -131,3 +131,22 @@ main > article > p {
 main > article > p > a {
   text-decoration: none;
 }
+
+#letters {
+  margin: 0 10px 10px 0;
+  list-style:none;
+  width:100px;
+  height:100px;
+  font-size: 100px;
+  align-items: center;
+  text-align: center;
+  border-style: solid;
+  background-color: white;
+  border-width: 10px 10px 10px 10px;
+}
+#gameBoard{
+  background-color: rgb(0, 167, 111);
+  margin-left:auto; 
+    margin-right:auto;
+    border-spacing: 5px;
+}
