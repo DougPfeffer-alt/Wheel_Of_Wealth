@@ -57,7 +57,7 @@ function userMakesHSList(name, score) {
     new HiScore('Carol', 30);
     new HiScore('Alice', 20);
     new HiScore('Ted', 10);
-  };
+  }
 
   //sorts function from lowest score to highest score
   hiScoreArray.sort(function (a, b) { return a.score - b.score; });
@@ -77,11 +77,12 @@ console.log(hiScoreArray);
 
 //table
 
-function handleSubmit() {
+function handleSubmit(event) {
   event.preventDefault();
 
-  newPlayer = event.target.playerName.value;
-  newPlayer = new Player(playerName);
+  newPlayer = event.target.name.value;
+  console.log(event.target.name.value);
+  newPlayer = new Player(newPlayer);
   event.target.playerName.value = null;
   // renderTable();
 
