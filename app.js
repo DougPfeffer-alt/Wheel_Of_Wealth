@@ -33,22 +33,22 @@ function userMakesHSList(name, score) {
 
 
   //if there is already a hi score array in local storage, use that one instead
-  if (localStorage.getItem('playerArray')) {
+  if (localStorage.getItem('hiScoreArray')) {
     //parses the stringified data back to an array type object
     hiScoreArray = JSON.parse(localStorage.getItem('hiScoreArray'));
   }
   //if there is nothing in local storage, the default hi score list is loaded instead
   else {
-    new HiScore('Nebiyu', 100);
-    new HiScore('Doug', 90);
-    new HiScore('Louis', 80);
-    new HiScore('Mike', 70);
-    new HiScore('Paully', 60);
-    new HiScore('JakeTown', 50);
-    new HiScore('Bob', 40);
-    new HiScore('Carol', 30);
-    new HiScore('Alice', 20);
-    new HiScore('Ted', 10);
+    new Player('Nebiyu', 100);
+    new Player('Doug', 90);
+    new Player('Louis', 80);
+    new Player('Mike', 70);
+    new Player('Paully', 60);
+    new Player('JakeTown', 50);
+    new Player('Bob', 40);
+    new Player('Carol', 30);
+    new Player('Alice', 20);
+    new Player('Ted', 10);
   }
 
   //sorts function from lowest score to highest score
@@ -69,11 +69,10 @@ console.log(hiScoreArray);
 
 //table
 
-  newPlayer = event.target.name.value;
-  console.log(event.target.name.value);
-  newPlayer = new Player(newPlayer);
-  event.target.playerName.value = null;
-  // renderTable();
+function handleSubmit(event){
+  event.preventDefault();
+  return event.target.name.value;
+}
 
 // asking user their name and logging it in local storage
 // maybe using a form we will ask the user- name and info
@@ -87,7 +86,7 @@ function renderTable() {
   }
 }
 
-// newPlayer.addEventListener('submit', handleSubmit);
+newPlayer.addEventListener('submit', handleSubmit);
 
 // constructor functions
 function renderHeader() {
