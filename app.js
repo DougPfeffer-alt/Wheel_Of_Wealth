@@ -323,29 +323,3 @@ function getRandomIntInclusive(min, max) {
 // renderTable();
 
 
-// // function Player(name) {
-// //   this.name = name;
-// //   this.totalScore = [];
-// //   allPlayers.push(this);
-// // }
-// // console.log(allPlayers);
-// //how we push the high score highScore arry
-// function Player(name, score) {
-//   this.name = name;
-//   this.score = score;
-//   // hiScoreArray.push(this.score);
-//   allPlayers.push(this);
-// }
-<<<<<<< HEAD
-// console.log(allPlayers);
-=======
-// console.log(allPlayers);
-//how we push the high score highScore arry
-function Player(name, score) {
-  this.name = name;
-  this.score = score;
-  // hiScoreArray.push(this.score);
-  allPlayers.push(this);
-}
-console.log(allPlayers);
->>>>>>> 0a563bc3bb74a8b77f8dd92dd1b8c7136aa10a0f
