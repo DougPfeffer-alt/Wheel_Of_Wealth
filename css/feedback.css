@@ -1,0 +1,28 @@
+#transitionAlert{
+  font-size: 48px;
+  color:white;
+  text-shadow: 3px 3px black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.youWin{
+  
+  background-color: white;
+ -webkit-transform: scale(5);
+  -ms-transform: scale(5);
+  transform: scale(5);
+  /*animation: 3s infinite alternate slidein;*/
+}
+
+/*@keyframes youWin{
+  from {
+    margin-left:100%;
+    width:300%
+  }
+  
+  to {
+    margin-left:0%;
+    width:100%;
+  }
+}*/

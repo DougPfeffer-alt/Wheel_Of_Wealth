@@ -8,6 +8,7 @@ var gameboardDisplayArray = [];
 var currentRoundArray;
 var currentCategory;
 var currentWord;
+var letterCounter = 0;
 var userName;
 
 function clicksBegin() {
@@ -70,7 +71,8 @@ function populateGameboard(currRoundArray) {
     letterCell.innerHTML = ' ';
     letterCell.setAttribute('id', 'letters');
     tableRow1.appendChild(letterCell);
-    gameboardDisplayArray.push(letterCell);    
+    gameboardDisplayArray.push(letterCell);
+    letterCounter++;
   }
 }
 
@@ -78,28 +80,42 @@ function populateGameboard(currRoundArray) {
 
 var letterGuess = document.getElementById('guessField');
 
-function handleSubmit(event) {
+function checkAnswer(event) {
   event.preventDefault();
 
   var gotItRight = false;
-  var multiplier = 0;
+  var multiplier = 0;  
   var guess = event.target.name.value;
   guess = guess.toUpperCase();
-  console.log(guess);
   for (var i = 0; i < currentRoundArray.length; i++) {
     if (guess === currentRoundArray[i]) {
       multiplier++;      
       gotItRight = true;
       gameboardDisplayArray[i].innerHTML = currentRoundArray[i];
+      letterCounter--;
     } else if (guess !== currentRoundArray[i]) {//ignore wrong guesses}
-    }
-
-    if (gotItRight === true) {      
-    }
+    }    
   }
+  
+  //---------checks to see if user has won the round yet---------//
+
+  //first gets a reference to the 'Let's Play' h2 element in game.HTML.
+  var alert = document.getElementById('transitionAlert');
+
+  //if all letters have been guessed, banner is changed to win message and given new .className to begin the .youWin CSS transition.
+  if (letterCounter === 0) {
+    console.log('round over-win');
+    alert.textContent = 'You Win!';
+    alert.className= 'youWin';
+    console.log(alert.classList);
+  }
+
+  //emptys the field where you guess a letter because it's annoying when you don't
   event.target.name.value = null;
 }
+//the event listener for checkAnswer()
+letterGuess.addEventListener('submit', checkAnswer);
 
-letterGuess.addEventListener('submit', handleSubmit);
 
+//test logic
 gameStart();
