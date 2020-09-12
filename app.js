@@ -154,7 +154,7 @@ function renderTable() {
 // constructor functions
 function renderHeader() {
   var headerRow = document.createElement('tr');
-  
+
   // headerScore.textcontent = 'Score';
   // headerRow.appendChild(headerPlayer);
   // tableBody.appendChild(headerRow);
