@@ -4,12 +4,15 @@ var categoryArray = ['Sports', 'JavaScript', 'CSS'];
 var sportsArray = ['BASEBALL', 'FOOTBALL', 'HOCKEY'];
 var javaScriptArray = ['FUNCTION', 'VARIABLE', 'CONCATENATION']
 var cssArray = ['BORDER', 'COLOR', 'ABSOLUTE'];
+var prizeWheel = [250, 500, 600, 700, 800, 900, 1000, 5000, 'bankrupt', 'wild', 'BUST', 'deposit'];
+
 var gameboardDisplayArray = [];
 var currentRoundArray;
 var currentCategory;
 var currentWord;
 var letterCounter = 0;
 var userName;
+var playerScore = 0;
 
 var gameBoard = document.getElementById("gameBoard");
 var alertText = document.getElementById('transitionAlert');
@@ -38,7 +41,6 @@ function mathRand(max) {
 function createGameboard() {
   //1. select category
   currentCategory = categoryArray[mathRand(categoryArray.length)];
-  console.log('1');
   //2. select hidden word
   if (currentCategory === 'Sports') {
     currentWord = sportsArray[mathRand(sportsArray.length)];
@@ -51,7 +53,6 @@ function createGameboard() {
 }
 
 function splitString(currWord) {
-  console.log('2');
   var str = currWord;
   currWord = str.split('');
   currentRoundArray = currWord;
@@ -60,8 +61,7 @@ function splitString(currWord) {
 }
 
 
-function populateGameboard(currRoundArray) {
-  console.log('3');  
+function populateGameboard(currRoundArray) { 
   var tableBody = document.createElement('tbody');
   gameBoard.appendChild(tableBody);
   var tableRow1 = document.createElement('tr');
@@ -85,6 +85,9 @@ function populateGameboard(currRoundArray) {
   categoryh2.textContent = 'Category: ' + currentCategory;
 }
 
+function currentSpin(){
+  
+}
 
 
 var letterGuess = document.getElementById('guessField');
