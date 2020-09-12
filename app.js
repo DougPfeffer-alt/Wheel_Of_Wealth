@@ -327,3 +327,5 @@ console.log(allPlayers);
 // renderTable();
 
 
+//just animation font style neb
+
