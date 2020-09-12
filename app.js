@@ -4,6 +4,8 @@
 //global var here
 var newPlayer = document.getElementById('newPlayer');
 var tableBody = document.getElementById('highScoreTable');
+var headerPlayer = document.createElement('th');
+var headerScore = document.createElement('th');
 // var placement = [];
 var allPlayers = [];
 var hiScoreArray = [];
@@ -34,7 +36,6 @@ function getRandomIntInclusive(min, max) {
 
 
 Player.prototype.render = function () {
-  var tableEl = document.getElementById('highScoreTable');
   // var highScoreTableEl = document.createElement('th');
   // highScoreTable.textContent = this.name;
   // var trEl = document.createElement('tr');
@@ -43,13 +44,17 @@ Player.prototype.render = function () {
   // thEl.textContent = this.name;
   // trEl.appendChild(thEl);
   var playerRow = document.createElement('tr');
+  var scoreRow = document.createElement('tr');
   var highScoreName = document.createElement('th');
-  var highScore = document.createElement('td');
+  highScoreName.className = 'hiscoreTh';
+  var highScore = document.createElement('th');
+  highScore.className = 'hiscoreCell';
   highScoreName.textContent = this.name;
   // tableEl.appendChild(playerRow);
   highScore.textContent = this.score;
-  highScoreName.appendChild(highScore);
+  scoreRow.appendChild(highScore);
   playerRow.appendChild(highScoreName);
+  playerRow.appendChild(scoreRow);
   tableBody.appendChild(playerRow);
 };
 
@@ -76,16 +81,16 @@ function userMakesHSList(name, score) {
     //   new HiScore('Alice', 20);
     //   new HiScore('Ted', 10);
     // };
-    new Player('Nebiyu', 100);
-    new Player('Doug', 90);
-    new Player('Louis', 80);
-    new Player('Mike', 70);
-    new Player('Paully', 60);
-    new Player('JakeTown', 50);
-    new Player('Bob', 40);
-    new Player('Carol', 30);
-    new Player('Alice', 20);
-    new Player('Ted', 10);
+    new Player('Nebiyu', '$100');
+    new Player('Doug', '$90');
+    new Player('Louis', '$80');
+    new Player('Mike', '$70');
+    new Player('Paully', '$60');
+    new Player('JakeTown', '$50');
+    new Player('Bob', '$40');
+    new Player('Carol', '$30');
+    new Player('Alice', '$20');
+    new Player('Ted', '$10');
   }
 
   //sorts function from lowest score to highest score
@@ -149,12 +154,11 @@ function renderTable() {
 // constructor functions
 function renderHeader() {
   var headerRow = document.createElement('tr');
-  var headerPlayer = document.createElement('th');
-  var headerScore = document.createElement('th');
+  
   // headerScore.textcontent = 'Score';
   // headerRow.appendChild(headerPlayer);
   // tableBody.appendChild(headerRow);
-  headerScore.textContent = 'Pat and Vanna\'s High Score Table';
+  headerScore.textContent = 'PLAYER';
   headerPlayer.textContent = 'SCORE';
   console.log(headerScore);
 
