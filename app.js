@@ -83,8 +83,8 @@ function Player(name, score) {
   this.score = score;
   allPlayers.push(this);
 }
-const bellSound = new Audio('./sound/High-pitch-bell-tone-ding.mp3');
-newPlayer.addEventListener('submit', handleSubmit, => bellSound.play());
+// const bellSound = new Audio('./sound/High-pitch-bell-tone-ding.mp3');
+// newPlayer.addEventListener('submit', handleSubmit, => bellSound.play());
 
 renderTable();
 console.log(allPlayers);
