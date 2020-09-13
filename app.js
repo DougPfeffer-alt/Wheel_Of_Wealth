@@ -90,7 +90,6 @@ renderTable();
 console.log(allPlayers);
 
 
-<<<<<<< HEAD
 
 
 
@@ -212,5 +211,3 @@ console.log(allPlayers);
 
 //just animation font style neb
 
-=======
->>>>>>> f6bb33219ff75a5b94e3d1cf8361635a629a5b74
