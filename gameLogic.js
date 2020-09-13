@@ -315,7 +315,14 @@ function endGame(){
 
 function endMessages(){
   alertText.textContent = 'Daily Total: $' + runningTotal;
+  setTimeout(goToHSList, 4000);
 }
+
+function goToHSList(){
+  //trying to fix this!
+  userMakesHSList('Turbo', 5000);
+}
+
 //the event listener for checkAnswer()
 letterGuess.addEventListener('submit', checkAnswer);
 
