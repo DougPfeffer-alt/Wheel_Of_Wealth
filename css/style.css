@@ -30,25 +30,31 @@ header > img {
 }
 
 h1 {
-  background-color:rgb(60,170,213,1);
-  width: 1110px;
+  color: white;
+  width: auto;
   text-align: center;
-  padding: 20px;
-  color: rgb(45, 42, 46);
-  font-size: 56px;
   font-family: wheelOfFortune;
-  font-size: 75px;
+  font-size: 100px;
+  text-shadow: 3px 7px black;
+  border: 5px solid rgb(255, 255, 255);
+  padding: 30px
 }
 
 h2 {
-  font-family: wheelOfFortune;
+  
 }
 
 h4 {
   padding-bottom: 20px;
 }
+header{
+  margin-bottom: 10%;
+}
+
 header > nav {
-  float: center;
+  
+  margin-top: 5%;
+  float: center;  
 }
 
 header > nav > ul > li {
