@@ -4,17 +4,18 @@ var categoryArray = ['Sports', 'JavaScript', 'CSS'];
 var sportsArray = ['BASEBALL', 'FOOTBALL', 'HOCKEY'];
 var javaScriptArray = ['FUNCTION', 'VARIABLE', 'CONCATENATION'];
 var cssArray = ['BORDER', 'COLOR', 'ABSOLUTE'];
+var usedPuzzles = [];
 var prizeWheelArray = [250, 350, 500, 550, 600, 700, 750, 800, 900, 1000, 5000, 'bankrupt'];
 
-var totalRounds = 1;
+var totalRounds = 3;
 var currentRound = 0;
 var gameboardDisplayArray = [];
 var currentRoundArray;
 var currentCategory;
+var previousCategory;
 var currentWord;
 var letterCounter = 0;
 var userName;
-var playerScore = 0;
 var currentPrizeNumber = 0;
 //lets us know the current round is over
 var roundOver = false;
@@ -44,7 +45,6 @@ if (gameStarted === false) {
 
 
 function gameStart() {
-  console.log('Display Game Intro!');
   return createGameboard();
 }
 
@@ -54,7 +54,10 @@ function mathRand(max) {
 
 function createGameboard() {
   //1. select category
-  currentCategory = categoryArray[mathRand(categoryArray.length)];
+  while(currentCategory === previousCategory){
+    currentCategory = categoryArray[mathRand(categoryArray.length)];
+  }
+  previousCategory = currentCategory;
   //2. select hidden word
   if (currentCategory === 'Sports') {
     currentWord = sportsArray[mathRand(sportsArray.length)];
@@ -63,6 +66,19 @@ function createGameboard() {
   } else if (currentCategory === 'CSS') {
     currentWord = cssArray[mathRand(cssArray.length)];
   }
+
+  for(var i = 0; i < usedPuzzles.length; i++){
+    while(currentWord === usedPuzzles[i]){
+      if (currentCategory === 'Sports') {
+        currentWord = sportsArray[mathRand(sportsArray.length)];
+      } else if (currentCategory === 'JavaScript') {
+        currentWord = javaScriptArray[mathRand(javaScriptArray.length)];
+      } else if (currentCategory === 'CSS') {
+        currentWord = cssArray[mathRand(cssArray.length)];
+      }
+    }
+  }
+  usedPuzzles.push(currentWord);
   return splitString(currentWord);
 }
 
@@ -71,11 +87,11 @@ function splitString(currWord) {
   currWord = str.split('');
   currentRoundArray = currWord;
   console.log(currentRoundArray);
-  return populateGameboard(currentRoundArray);
+  return populateGameboard();
 }
 
 
-function populateGameboard(currRoundArray) {
+function populateGameboard() {
   var tableBody = document.createElement('tbody');
   gameBoard.appendChild(tableBody);
   var tableRow1 = document.createElement('tr');
@@ -99,6 +115,7 @@ function populateGameboard(currRoundArray) {
   categoryh2.textContent = 'Category: ' + currentCategory;
 
   currentRound++;
+  local_randomCounter = createRandomCounter();
   displayPrize(currentSpin());
 }
 
@@ -141,22 +158,29 @@ function displayPrize(prizeAmount) {
   currentPrize.className = 'prizeSpin';
   prizeDisplayArea.appendChild(currentPrize);
   local_randomCounter--;
-
+  console.log(currentPrize.textContent);
   if (local_randomCounter > 0) {
     setTimeout(displayPrize, 100, currentSpin());
   }
-  else if (local_randomCounter === 0 && currentPrize !== 'bankrupt') {
+  else if (local_randomCounter === 0 && currentPrize.textContent !== 'bankrupt') {
     currentPrize.className = 'currentPrize';
     previousPrize = currentPrize;
   }
-  else if (local_randomCounter === 0 && currentPrize === 'bankrupt') {
+  else if (local_randomCounter === 0 && currentPrize.textContent === 'bankrupt') {
+    console.log('bankrupt');
     currentPrize.className = 'bankrupt';
     previousPrize = currentPrize;
+    runningTotal = 0;
+    scoreTally.textContent = 'Daily Total: $';
+    scoreTally.textContent += runningTotal;
+    currentPrize.textContent = 'YOU\'RE BANKRUPT!!! SPIN AGAIN!';
+    local_randomCounter = createRandomCounter();
+    setTimeout(displayPrize, 3500, currentSpin());
   }
 }
 
 
-///////////////////this function handles the logic of when the user guesses a leter using the form field//////////////////////// 
+///////////////////this function handles the logic of when the user guesses a leter using the form field////////////////////////
 
 //gets an html reference to the form area where the user can guess letters
 var letterGuess = document.getElementById('guessField');
@@ -204,7 +228,9 @@ function checkAnswer(event) {
     //this sets all guesses to uppercase since I am using strict conditionals (===)
     guess = guess.toUpperCase();
 
+    //checks to make sure user hasn't already used the current letter guess
     for (var k = 0; k < gameboardDisplayArray.length; k++) {
+      
       if (guess === gameboardDisplayArray[k].textContent) {
         currentPrize.textContent = 'You already guessed ' + guess + ' unfortunately! Spin again!';
         local_randomCounter = createRandomCounter();

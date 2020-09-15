@@ -13,6 +13,24 @@
   /*animation: 3s infinite alternate slidein;*/
 }
 
+.bankrupt{
+  background-color: black;
+  color: black;
+  text-shadow: .5px 1px white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  border: 3px solid rgb(255, 255, 255);  
+
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  -webkit-transform: scale(5);
+  -ms-transform: scale(5);
+  transform: scale(5);
+  width: 20%;
+}
+
 .currentPrize{
   background-color: white;
   color: white;
