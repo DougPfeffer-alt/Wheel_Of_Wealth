@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wheel of Wealth - Home</title>
+  <!--link rel="stylesheet" href="css/reset.css" type="text/css"-->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/feedback.css" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <div id = 'playerScore'><p>Daily Total: $</p></div>
+    <h1>WheelOf<br> 
+      Wealth</h1>
+    <nav>
+      <ul>
+        <li><a href="about_us.html">About us</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="High_Score.html">High Score</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <br>
+  <br>
+  <br>
+  <main>
+    <section id="transitionArea">
+      <h2 id="transitionAlert">Let's Play!</h2>
+    </section>
+
+    <table id="gameBoard"></table>
+    <h2 id="category">Category: </h2>
+    <form id="guessField">
+      <fieldset>
+        <legend>Enter a Letter</legend>
+        <label for="name">Guess:</label>
+        <input type="text" name="name">
+        <button type="submit">SUBMIT</button>
+      </fieldset>
+    </form>
+  </main>
+  <script src="gameLogic.js"></script>
+  <script src="hi_scoreLogic.js"></script>
+</body>
+
+<footer>&copy;Wheel of Wealth/2020</footer>
+
+
+
+
+</html>

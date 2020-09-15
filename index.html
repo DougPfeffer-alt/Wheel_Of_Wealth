@@ -7,16 +7,79 @@
   <title>Wheel of Wealth - Home</title>
   <!--link rel="stylesheet" href="css/reset.css" type="text/css"-->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />  
 </head>
 
 <body>
+  <header>
+    <h1>WheelOf<br> 
+      Wealth</h1>
+    <audio autoplay>
+      <source src="./sound/WheelofFortuneTheme2006present.mp3" type="audio/mpeg">
+    </audio>
+    <nav>
+      <ul>
+        <li><a href="about_us.html">About us</a></li>
+        <li><a href="game.html">Game</a></li>
+        <li><a href="High_Score.html">High Score</a></li>
+      </ul>
+    </nav>
+  </header>
+  <br>
+  <br>
+  <br>
+  <main>
+    <section>
+      <img src="./images/Pat_Sajak.jpg" alt="Pat">
+      <br>
+      <br>
+    </section>
+    <h2>Welcome To Wheel Of Wealth</h2>
 
+    <form  id = "newPlayer">
+      <fieldset>
+        <legend>Enter your Name</legend>
+        <label for="name">Player Name:</label>
+        <input type="text" name="name">
+        <button type="submit">SUBMIT</button>
+      </fieldset>
+    </form>
 
+    <section>
+      <img src="./images/wheel.gif" alt="wheel">
+    </section>
+
+    <section id="box-row">
+      <div class="box"></div>
+    </section>
+
+    <section>
+      <h3>Rules</h3>
+    </section>
+
+    <section>
+      <ol>
+        <li>On the game screen, the player is presented with a category, and a hidden puzzle associated with that
+          category.</li>
+        <li>A random monetary value is presented for each letter guess that they make. This amount could be a dollar
+          amount, but it could also be "Bankrupt", where you lose everything.</li>
+        <li> If the segment is not a penalty one, the player can pick a letter.</li>
+        <li>If the guess is correct, then a prize according to the segment is paid, per correct letter ($100 for 3 x J's
+          would pay out $300).</li>
+        <li>If the guess is wrong, a new prize amount is generated, and the player gets to guess again.</li>
+        <li>After solving the puzzle, the player moves on to the next round. There are a total of 3 rounds.</li>
+        <li>At the completion of all 3 rounds, the players total winnings are added up, and if achieved, the player is
+          immortalized on the High Score Board</li>
+      </ol>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+  <script src="gameLogic.js"></script>
+  <script src="hi_scoreLogic.js"></script>
 </body>
+<footer>&copy;Wheel of Wealth/2020</footer>
 
-<footer>
 
-</footer>
+
 
 </html>
