@@ -18,7 +18,9 @@ var playerScore = 0;
 var currentPrizeNumber = 0;
 //lets us know the current round is over
 var roundOver = false;
+var gameStarted = false;
 
+var userNameforGameLogic = '';
 var scoreTally = document.getElementById('playerScore');
 scoreTally.className = 'totalScore';
 var runningTotal = 0;
@@ -29,15 +31,17 @@ var previousPrize = document.createElement('h2');
 var gameBoard = document.getElementById("gameBoard");
 var alertText = document.getElementById('transitionAlert');
 
-function clicksBegin() {
-  if (userName === undefined) {
-    //var submitButtton = document.getElementById('submitButton');
-    //submitButton.addEventListener('submit', gameStart());   
+if (gameStarted === false) {
+  gameStarted = true;
+  if (localStorage.getItem('userName')) {
+    userNameforGameLogic = JSON.parse(localStorage.getItem('userName'));
+  } else {
+    userNameforGameLogic = 'Player';
   }
-  else {
-    console.log('game starts with current userName');
-  }
+  console.log(userNameforGameLogic);
+  gameStart();
 }
+
 
 function gameStart() {
   console.log('Display Game Intro!');
@@ -200,8 +204,8 @@ function checkAnswer(event) {
     //this sets all guesses to uppercase since I am using strict conditionals (===)
     guess = guess.toUpperCase();
 
-    for(var k = 0; k < gameboardDisplayArray.length; k++){
-      if(guess === gameboardDisplayArray[k].textContent){
+    for (var k = 0; k < gameboardDisplayArray.length; k++) {
+      if (guess === gameboardDisplayArray[k].textContent) {
         currentPrize.textContent = 'You already guessed ' + guess + ' unfortunately! Spin again!';
         local_randomCounter = createRandomCounter();
         setTimeout(resetPrizeText, 2000);
@@ -248,7 +252,7 @@ function checkAnswer(event) {
       } else if (multiplier > 1) {
         currentPrize.textContent = 'There are ' + multiplier + ' ' + guess + '\'s! Nice job!';
       }
-      if(roundOver === false && letterCounter > 0){
+      if (roundOver === false && letterCounter > 0) {
         local_randomCounter = createRandomCounter();
         setTimeout(displayPrize, 1100, currentSpin());
       }
@@ -287,7 +291,7 @@ function checkAnswer(event) {
         roundOver = false;
         createGameboard();
       };
-    }else if(letterCounter === 0 && currentRound === totalRounds){
+    } else if (letterCounter === 0 && currentRound === totalRounds) {
       alertText.textContent = 'Puzzle Solved!';
       alertText.className = 'youWin';
       currentPrize.className = 'roundOver';
@@ -308,24 +312,24 @@ function resetPrizeText() {
   currentPrize.textContent = '$' + currentPrizeNumber;
 }
 
-function endGame(){
+function endGame() {
   alertText.textContent = 'Game Over!';
   setTimeout(endMessages, 3000);
 }
 
-function endMessages(){
+function endMessages() {
   alertText.textContent = 'Daily Total: $' + runningTotal;
   setTimeout(goToHSList, 4000);
 }
 
-function goToHSList(){
+function goToHSList() {
   //trying to fix this!
-  userMakesHSList('Turbo', 5000);
+  userMakesHSList(userNameforGameLogic, runningTotal);
+  location.replace('High_Score.html');
 }
 
 //the event listener for checkAnswer()
 letterGuess.addEventListener('submit', checkAnswer);
 
 
-//test logic
-gameStart();
+

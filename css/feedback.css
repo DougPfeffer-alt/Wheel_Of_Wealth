@@ -1,6 +1,7 @@
 
 
 .youWin{
+  font-family: wheelOfFortune;
   border: 5px solid black;
   background-color: white;
   margin: auto;
@@ -8,6 +9,7 @@
   -ms-transform: scale(2);
   transform: scale(2);
   width: 30%;
+  text-shadow: .5px 1px black;
   /*animation: 3s infinite alternate slidein;*/
 }
 
