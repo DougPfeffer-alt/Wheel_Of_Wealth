@@ -1,9 +1,9 @@
 'use strict';
 
 var categoryArray = ['Sports', 'JavaScript', 'CSS'];
-var sportsArray = ['BASEBALL', 'FOOTBALL', 'HOCKEY'];
-var javaScriptArray = ['FUNCTION', 'VARIABLE', 'CONCATENATION'];
-var cssArray = ['BORDER', 'COLOR', 'ABSOLUTE'];
+var sportsArray = ['BASEBALL', 'FOOTBALL', 'HOCKEY', 'SOCCER', 'CRICKET', 'SQUASH', 'MARBLES', 'SWIMMING', 'RUGBY', 'CYCLING', 'GOLF', 'NASCAR', 'BOWLING', 'TENNIS', 'ARCHERY', 'HANDBALL', 'PICKLEBALL', 'BILLIARDS', 'SURFING', 'EQUESTRIAN', 'BASKETBALL', 'CLIMBING', 'GRAPPLING', 'GYMNASTICS', 'PARKOUR', 'FISHING'];
+var javaScriptArray = ['FUNCTION', 'VARIABLE', 'CONCATENATION', 'ARRAYS', 'BOOLEAN', 'TRUTHY', 'FALSY', 'CONSOLE', 'LOOP', 'OBJECT', 'STRING', 'SYNTAX', 'DOCUMENT', 'SCRIPT', 'METHOD', 'PROPERTY', 'LITERAL', 'HIERARCHY', 'BUTTON', 'CHECKBOX', 'FORM', 'SUBMIT', 'TEXTAREA', 'HREF'];
+var cssArray = ['BORDER', 'COLOR', 'ABSOLUTE', 'DECLARATION', 'PROPERTY', 'VALUE', 'SELECTOR', 'ELEMENT', 'CLASS', 'UNIVERSAL', 'ATTRIBUTE', 'PSEUDO', 'IDENTIFIER', 'MARGIN', 'PADDING', 'DECORATION', 'CHILD', 'SIBBLING', 'BACKGROUND', 'OPACITY'];
 var usedPuzzles = [];
 var prizeWheelArray = [250, 350, 500, 550, 600, 700, 750, 800, 900, 1000, 5000, 'bankrupt'];
 
@@ -54,7 +54,7 @@ function mathRand(max) {
 
 function createGameboard() {
   //1. select category
-  while(currentCategory === previousCategory){
+  while (currentCategory === previousCategory) {
     currentCategory = categoryArray[mathRand(categoryArray.length)];
   }
   previousCategory = currentCategory;
@@ -67,8 +67,8 @@ function createGameboard() {
     currentWord = cssArray[mathRand(cssArray.length)];
   }
 
-  for(var i = 0; i < usedPuzzles.length; i++){
-    while(currentWord === usedPuzzles[i]){
+  for (var i = 0; i < usedPuzzles.length; i++) {
+    while (currentWord === usedPuzzles[i]) {
       if (currentCategory === 'Sports') {
         currentWord = sportsArray[mathRand(sportsArray.length)];
       } else if (currentCategory === 'JavaScript') {
@@ -230,7 +230,7 @@ function checkAnswer(event) {
 
     //checks to make sure user hasn't already used the current letter guess
     for (var k = 0; k < gameboardDisplayArray.length; k++) {
-      
+
       if (guess === gameboardDisplayArray[k].textContent) {
         currentPrize.textContent = 'You already guessed ' + guess + ' unfortunately! Spin again!';
         local_randomCounter = createRandomCounter();
