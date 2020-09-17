@@ -7,16 +7,24 @@
   <title>Wheel of Wealth - Home</title>
   <!--link rel="stylesheet" href="css/reset.css" type="text/css"-->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" type="text/css" />  
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
   <header>
-    <h1>WheelOf<br> 
-      Wealth</h1>
+    <h1>WheelOf<br>
+      Wealth</h1>    
     <audio autoplay>
       <source src="./sound/WheelofFortuneTheme2006present.mp3" type="audio/mpeg">
     </audio>
+    <audio autoplay id = "myaudio">
+      <source src="./sound/Clapping-sound.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      var audio = document.getElementById("myaudio");
+      audio.volume = .2;
+    </script>
+
     <nav>
       <ul>
         <li><a href="about_us.html">About us</a></li>
@@ -36,7 +44,7 @@
     </section>
     <h2>Welcome To Wheel Of Wealth</h2>
 
-    <form  id = "newPlayer">
+    <form id="newPlayer">
       <fieldset>
         <legend>Enter your Name</legend>
         <label for="name">Player Name:</label>
