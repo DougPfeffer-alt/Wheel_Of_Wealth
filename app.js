@@ -11,8 +11,7 @@ function handleSubmit(event) {
   console.log(event.target.name.value);
   localStorage.setItem('userName', userName);
   newPlayer.removeEventListener('submit', handleSubmit);
-  // location.replace('game.html');
-  window.location = 'game.html';
+  location.replace('game.html');
 }
 newPlayer.addEventListener('submit', handleSubmit);
 
